@@ -1,5 +1,10 @@
 <template>
   <div>
-    this wrks
+    Login Component wrks
   </div>
 </template>
+<script>
+export default {
+  name: "login",
+};
+</script>
