@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-    <v-app-bar app absolute color="primary" dark>
+  <div>
+    <v-app-bar app fixed color="primary" dark>
       <v-btn icon>
         <v-icon>
           mdi-sofa
@@ -21,11 +21,11 @@
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
     </v-app-bar>
-    <!-- <unit /> -->
-  </v-app>
+  </div>
 </template>
 <script>
 export default {
   name: "navBar",
 };
 </script>
+<style scoped></style>
