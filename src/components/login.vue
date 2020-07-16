@@ -8,7 +8,7 @@
         />
         <hr />
         <v-form>
-          <v-card-title default>Welcome Roomy!</v-card-title>
+          <v-card-title default><h3>Spaces</h3></v-card-title>
           <v-container>
             <v-row>
               <v-col cols="8">
