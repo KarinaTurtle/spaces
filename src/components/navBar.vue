@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar app fixed color="primary" dark>
+    <v-app-bar app fixed color="black" dark>
       <v-btn icon>
         <v-icon>
           mdi-sofa
@@ -25,8 +25,16 @@
           </v-btn>
         </template>
         <v-list>
-          <v-list-item v-for="(item, index) in items" :key="index">
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item
+            v-for="(item, index) in items"
+            :key="index"
+            @click="test()"
+            :to="item.link"
+            link
+          >
+            <v-list-item-title>
+              {{ item.title }}
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -37,8 +45,13 @@
 export default {
   name: "navBar",
   data: () => ({
-    items: [{ title: "log out" }, { title: "Account" }],
+    items: [{ title: "Log Out", link: "/login" }, { title: "Account" }],
   }),
+  methods: {
+    test() {
+      console.log("this wrks");
+    },
+  },
 };
 </script>
 <style scoped></style>

@@ -18,3 +18,8 @@ export default {
   components: { navBar },
 };
 </script>
+<style>
+.v-application--wrap {
+  display: block;
+}
+</style>
