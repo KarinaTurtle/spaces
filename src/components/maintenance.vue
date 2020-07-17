@@ -1,5 +1,5 @@
 <template>
   <div>
-    this wrks
+    <p>Maintenance</p>
   </div>
 </template>
