@@ -9,6 +9,8 @@ import PayRent from "./components/payRent";
 import Maintenance from "./components/maintenance";
 import ExtendStay from "./components/extendStay";
 import ThirtyDayNotice from "./components/30daynotice";
+import CreateAccount from "./components/createAccount";
+import AccountFor from "./components/acc-for";
 
 // Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -20,6 +22,8 @@ const routes = [
     { path: "/maintenance", component: Maintenance },
     { path: "/extendstay", component: ExtendStay },
     { path: "/30daynotice", component: ThirtyDayNotice },
+    { path: "/create-acc", component: CreateAccount },
+    { path: "/acc-for", component: AccountFor },
 ];
 
 const router = new VueRouter({
