@@ -14,7 +14,7 @@
               <v-col cols="8">
                 <v-form>
                   <v-text-field
-                    label="userName"
+                    label="Username"
                     required
                     :rules="nameRules"
                     counter="10"
@@ -46,7 +46,7 @@
               </v-col>
               <v-col class="justify-center"
                 ><v-btn text color="black"><p>Forgot Password?</p></v-btn>
-                <v-btn text color="black">
+                <v-btn text color="black" href="/acc-for">
                   <p>Create an Account</p></v-btn
                 ></v-col
               >
