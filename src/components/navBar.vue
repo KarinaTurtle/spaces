@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar app fixed color="black" dark>
-      <v-btn icon>
+      <v-btn icon href="/home">
         <v-icon>
           mdi-sofa
         </v-icon>

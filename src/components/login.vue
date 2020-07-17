@@ -12,12 +12,27 @@
           <v-container>
             <v-row>
               <v-col cols="8">
-                <v-text-field label="userName" required></v-text-field
-                ><v-text-field label="Password" required>
-                  Password</v-text-field
-                ></v-col
-              ></v-row
-            >
+                <v-form>
+                  <v-text-field
+                    label="userName"
+                    required
+                    :rules="nameRules"
+                    counter="10"
+                  ></v-text-field
+                  ><v-text-field
+                    label="Password"
+                    required
+                    :rules="pwRules"
+                    :type="showPw ? 'text' : 'password'"
+                  ></v-text-field
+                ></v-form>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="auto">
+                <v-checkbox label="Remember Me"></v-checkbox>
+              </v-col>
+            </v-row>
             <div class="text-center">
               <v-col>
                 <v-btn
@@ -32,7 +47,7 @@
               <v-col class="justify-center"
                 ><v-btn text color="black"><p>Forgot Password?</p></v-btn>
                 <v-btn text color="black">
-                  <p>Forgot Username?</p></v-btn
+                  <p>Create an Account</p></v-btn
                 ></v-col
               >
             </div>
@@ -43,7 +58,17 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data: () => ({
+    showPw: false,
+    password: "Password",
+    nameRules: [
+      (v) => !!v || "Name is required",
+      (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
+    ],
+    pwRules: [(v) => !!v || "Password is required"],
+  }),
+};
 </script>
 <style>
 * {
