@@ -15,8 +15,10 @@
             <v-text-field label="Create Password" />
             <v-text-field label="Confirm Password" />
             <v-row>
-              <v-btn round href="/acc-for">Back</v-btn>
-              <v-btn round>Next</v-btn>
+              <v-btn round color="black" class="white--text" href="/acc-for"
+                >Back</v-btn
+              >
+              <v-btn round color="black" class="white--text">Next</v-btn>
             </v-row>
           </v-card>
         </v-row>
