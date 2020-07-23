@@ -6,25 +6,25 @@ import Vue from "vue";
 Vue.use(vuex, axios);
 
 export default new vuex.Store({
-    // strict: true,
     state: {
-        createAccForm: [{
+        createAccForm: {
             fName: "",
             lName: "",
             email: "",
             createPassword: "",
             confirmPassword: "",
-        }, ],
+        },
+        title: "title",
+        fname: [],
     },
-    methods: {},
-    // actions: {
-    //     sendData(context) {
-    //         context.commit("createAcc");
-    //     },
-    // },
-    // mutations: {
-    //     createAcc(state) {
-    //         state.createAcc();
-    //     },
-    // },
+    getters: {
+        fname: (state) => {
+            return state.fname;
+        },
+    },
+    mutations: {
+        ADD_USER: (state, user) => {
+            state.fname.push(user);
+        },
+    },
 });

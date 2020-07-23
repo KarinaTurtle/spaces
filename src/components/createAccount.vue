@@ -10,7 +10,10 @@
               <v-card-title>
                 Tenant
               </v-card-title>
-              <v-text-field v-on:keyup="save_name" pa-6 label="First Name" />
+              <v-form @submit.prevent="addUser">
+                <input type="text" v-model="fname" placeholder="add name" />
+              </v-form>
+              <v-text-field pa-6 label="First Name" />
               <v-text-field label="Last Name" />
               <v-text-field label="Email" />
               <v-text-field label="Create Password" />
@@ -29,13 +32,20 @@
   </div>
 </template>
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   data() {
-    return {};
+    return {
+      fname: "",
+    };
   },
   methods: {
-    save_name(fName) {
-      this.$store.state.createAcc.fName = fName;
+    ...mapMutations(["ADD_LINK", "ADD_USER"]),
+
+    addUser: function() {
+      this.ADD_USER(this.fname);
+      this.fname = "";
     },
   },
   computed: {},
