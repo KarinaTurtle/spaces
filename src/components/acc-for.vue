@@ -15,10 +15,14 @@
               <v-radio label="Contractor"></v-radio>
             </v-radio-group>
             <v-row>
-              <v-btn round color="black" class="white--text" href="/login"
+              <v-btn rounded color="black" class="white--text" href="/login"
                 >Back</v-btn
               >
-              <v-btn round color="black" class="white--text" href="/create-acc"
+              <v-btn
+                rounded
+                color="black"
+                class="white--text"
+                href="/create-acc"
                 >Next</v-btn
               >
             </v-row>

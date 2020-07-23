@@ -12,6 +12,9 @@ import ThirtyDayNotice from "./components/30daynotice";
 import CreateAccount from "./components/createAccount";
 import AccountFor from "./components/acc-for";
 
+// vue state management
+import store from "./store";
+
 // Vue.config.productionTip = false;
 Vue.use(VueRouter);
 
@@ -35,5 +38,6 @@ new Vue({
     vuetify,
     VueRouter,
     router,
+    store,
     render: (h) => h(App),
 }).$mount("#app");
