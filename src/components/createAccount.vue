@@ -5,27 +5,43 @@
     >
       <v-container class="pa-12">
         <v-row>
-          <v-form>
-            <v-card class="pa-16">
-              <v-card-title>
-                Tenant
-              </v-card-title>
-              <v-form @submit.prevent="addUser">
-                <input type="text" v-model="fname" placeholder="add name" />
-              </v-form>
-              <v-text-field pa-6 label="First Name" />
-              <v-text-field label="Last Name" />
-              <v-text-field label="Email" />
-              <v-text-field label="Create Password" />
-              <v-text-field label="Confirm Password" />
+          <v-card class="pa-16">
+            <v-card-title>
+              Tenant
+            </v-card-title>
+            <v-form>
+              <v-text-field
+                class="pa-4"
+                type="text"
+                v-model="newUser_fName"
+                label="First Name"
+              />
+              <v-text-field
+                class="pa-4"
+                type="text"
+                v-model="newUser_lName"
+                label="last Name"
+              />
+              <v-text-field
+                class="pa-4"
+                type="text"
+                v-model="newUser_email"
+                label="email"
+              />
               <v-row>
                 <v-btn rounded color="black" class="white--text" href="/acc-for"
                   >Back</v-btn
                 >
-                <v-btn rounded color="black" class="white--text">Next</v-btn>
+                <v-btn
+                  @click="registerUser"
+                  rounded
+                  color="black"
+                  class="white--text"
+                  >Next</v-btn
+                >
               </v-row>
-            </v-card>
-          </v-form>
+            </v-form>
+          </v-card>
         </v-row>
       </v-container>
     </v-app>
@@ -37,18 +53,26 @@ import { mapMutations } from "vuex";
 export default {
   data() {
     return {
-      fname: "",
+      newUser_fName: "",
+      newUser_lName: "",
+      newUser_email: "",
     };
   },
   methods: {
-    ...mapMutations(["ADD_LINK", "ADD_USER"]),
-
-    addUser: function() {
-      this.ADD_USER(this.fname);
-      this.fname = "";
+    ...mapMutations(["ADD_USER"]),
+    registerUser() {
+      fetch("regisster/endpoint") // request is optional, if you want to add the user to database if not you can dispatch it
+        .then(() => {
+          //if request is success the user will added to the state
+          this.$store.dispatch("addUser", {
+            first_name: this.newUser_fName,
+            last_name: this.newUser_lName,
+            email: this.newUser_email,
+            password: this.newUser_password,
+          });
+        });
     },
   },
-  computed: {},
 };
 </script>
 <style></style>

@@ -7,24 +7,17 @@ Vue.use(vuex, axios);
 
 export default new vuex.Store({
     state: {
-        createAccForm: {
-            fName: "",
-            lName: "",
-            email: "",
-            createPassword: "",
-            confirmPassword: "",
-        },
-        title: "title",
-        fname: [],
+        users: [],
     },
-    getters: {
-        fname: (state) => {
-            return state.fname;
-        },
-    },
+    getters: {},
     mutations: {
-        ADD_USER: (state, user) => {
-            state.fname.push(user);
+        ADD_USER: (state, payload) => {
+            state.users.push(payload.user);
+        },
+    },
+    actions: {
+        addUser: ({ commit }, payload) => {
+            commit("ADD_USER", payload);
         },
     },
 });
