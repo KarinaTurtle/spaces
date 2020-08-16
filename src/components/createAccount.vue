@@ -49,7 +49,7 @@
 </template>
 <script>
 import { mapMutations } from "vuex";
-
+import axios from "axios";
 export default {
   data() {
     return {
@@ -60,19 +60,36 @@ export default {
   },
   methods: {
     ...mapMutations(["ADD_USER"]),
+    // registerUser() {
+    //   fetch("regisster/endpoint") // request is optional, if you want to add the user to database if not you can dispatch it
+    //     .then(() => {
+    //       //if request is success the user will added to the state
+    //       this.$store.dispatch("addUser", {
+    //         first_name: this.newUser_fName,
+    //         last_name: this.newUser_lName,
+    //         email: this.newUser_email,
+    //         password: this.newUser_password,
+    //       });
+    //     });
+    // },
     registerUser() {
-      fetch("regisster/endpoint") // request is optional, if you want to add the user to database if not you can dispatch it
-        .then(() => {
-          //if request is success the user will added to the state
-          this.$store.dispatch("addUser", {
-            first_name: this.newUser_fName,
-            last_name: this.newUser_lName,
-            email: this.newUser_email,
-            password: this.newUser_password,
-          });
+      let config = {
+          headers: {
+            "Content-Type": "application/json",
+            }
+}
+      axios.post("http://localhost:7876/createUser", {
+          name: this.newUser_fName,
+          lastName: this.newUser_lName,
+          email: this.newUser_email,
+        }, config)
+        .then((response) => {
+          console.log(response.statusText);
+        })
+        .catch(e => {
+            console.log('Error: ', e.response.data)
         });
     },
   },
 };
 </script>
-<style></style>
