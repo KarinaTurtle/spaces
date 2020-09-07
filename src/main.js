@@ -4,13 +4,13 @@ import vuetify from "./plugins/vuetify";
 import VueRouter from "vue-router";
 // import VueRoute from "./router/index";
 import HomePage from "./components/homePage";
-import Login from "./components/login";
+import Login from "./Auth/login/login";
 import PayRent from "./components/payRent";
 import Maintenance from "./components/maintenance";
 import ExtendStay from "./components/extendStay";
 import ThirtyDayNotice from "./components/30daynotice";
-import CreateAccount from "./components/createAccount";
-import AccountFor from "./components/acc-for";
+import CreateAccount from "./Auth/Create-Acc/createAccount";
+import AccountFor from "./Auth/Create-Acc/acc-for";
 
 // vue state management
 import store from "./store";
